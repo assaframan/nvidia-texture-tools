@@ -23,7 +23,6 @@
 // OTHER DEALINGS IN THE SOFTWARE.
 
 #include "nvcore/Debug.h"
-#include "nvcore/Library.h"
 #include "CudaUtils.h"
 
 #if defined HAVE_CUDA
@@ -76,9 +75,10 @@ static bool isWow32()
 
 static bool isCudaDriverAvailable(int version)
 {
+#if 0 
 #if defined HAVE_CUDA
 #if NV_OS_WIN32
-	Library nvcuda("nvcuda.dll");
+	//Library nvcuda("nvcuda.dll");
 #else
 	Library nvcuda(NV_LIBRARY_NAME(cuda));
 #endif
@@ -127,7 +127,7 @@ static bool isCudaDriverAvailable(int version)
 		return driverVersion >= version;
 	}
 #endif // HAVE_CUDA
-
+#endif
 	return true;
 }
 

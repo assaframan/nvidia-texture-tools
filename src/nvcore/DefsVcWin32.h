@@ -17,9 +17,10 @@
 
 #define NV_PURE
 #define NV_CONST
-
+#if _MSC_VER < 1900
 // Set standard function names.
 #define snprintf _snprintf
+#endif
 #if _MSC_VER < 1500
 #   define vsnprintf _vsnprintf
 #endif
